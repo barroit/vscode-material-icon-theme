@@ -1,0 +1,41 @@
+name: gen-png
+
+on:
+   schedule:
+      - cron: '0 0 1,16 * *'
+   workflow_dispatch:
+
+permissions:
+   contents: write
+
+jobs:
+   sync-render-push:
+      runs-on: ubuntu-24.04
+      steps:
+         - uses: actions/checkout@v4
+           with:
+              ref: master
+              fetch-depth: 0
+
+         - name: Sync upstream
+           run: |
+              git config user.name github-actions
+              git config user.email github-actions@users.noreply.github.com
+              git remote add upstream https://github.com/material-extensions/vscode-material-icon-theme.git
+              git fetch upstream
+              git merge upstream/main --no-edit
+
+         - name: Render PNGs
+           run: |
+              sudo apt-get update && sudo apt-get install -y librsvg2-bin
+              find icons -name '*.png' -exec rm {} +
+              find icons -name '*.svg' | while read file; do
+                      rsvg-convert -w128 -h128 $file -o ${file%.svg}.png
+              done
+
+         - name: Commit and push
+           run: |
+              git add icons
+              git diff --cached --quiet && exit
+              git commit -m'png: update resources (auto)'
+              git push origin master
