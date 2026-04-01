@@ -16,6 +16,7 @@ jobs:
            with:
               ref: master
               fetch-depth: 0
+              token: ${{ secrets.WORKFLOW_PAT }}
 
          - name: Sync upstream
            run: |
