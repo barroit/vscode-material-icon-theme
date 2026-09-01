@@ -500,7 +500,6 @@ export const fileIcons: FileIcons = {
         'vcxproj.filters',
         'wixproj',
         'bas',
-        'brs',
         'vba',
       ],
       fileNames: ['.vsconfig'],
@@ -930,7 +929,12 @@ export const fileIcons: FileIcons = {
         'swiftmodule',
         'swiftsourceinfo',
       ],
-      fileNames: ['.swift-format', '.swift-version', '.swiftformat'],
+      fileNames: [
+        '.swift-format',
+        '.swift-version',
+        '.swiftformat',
+        '.xcode-version',
+      ],
     },
     { name: 'arduino', fileExtensions: ['ino'] },
     {
@@ -1674,6 +1678,7 @@ export const fileIcons: FileIcons = {
       name: 'rstack',
       fileNames: ['rslint.json', 'rslint.jsonc'],
       patterns: {
+        'rstack.config': FileNamePattern.Ecmascript,
         'rspack.config': FileNamePattern.Ecmascript,
         'rsbuild.config': FileNamePattern.Ecmascript,
         'rslib.config': FileNamePattern.Ecmascript,
@@ -1745,6 +1750,7 @@ export const fileIcons: FileIcons = {
         '.env.e2e',
         '.env.qa',
         '.env.dist',
+        '.env.preprod',
         '.env.prod',
         '.env.production',
         '.env.prod.example',
