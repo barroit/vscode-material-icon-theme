@@ -202,7 +202,7 @@ export const fileIcons: FileIcons = {
       ],
       fileNames: ['.htaccess'],
     },
-    { name: 'toml', fileExtensions: ['toml'], light: true },
+    { name: 'toml', fileExtensions: ['toml', 'tosd'], light: true },
     { name: 'toon', fileExtensions: ['toon'] },
     {
       name: 'image',
@@ -1274,7 +1274,8 @@ export const fileIcons: FileIcons = {
       name: 'clojure',
       fileExtensions: ['clj', 'cljs', 'cljc', 'cljx', 'clojure', 'edn'],
     },
-    { name: 'groovy', fileExtensions: ['groovy', 'gvy', 'nf'] },
+    { name: 'groovy', fileExtensions: ['groovy', 'gvy'] },
+    { name: 'nextflow', fileExtensions: ['nf'] },
     {
       name: 'r',
       fileExtensions: ['r', 'rmd', 'rhistory', 'rprofile', 'rt'],
@@ -1372,6 +1373,8 @@ export const fileIcons: FileIcons = {
         'test.cts',
         'test.mts',
         'ts.snap',
+        'cts.snap',
+        'mts.snap',
         'spec-d.ts',
         'test-d.ts',
       ],
@@ -1404,6 +1407,8 @@ export const fileIcons: FileIcons = {
         'test.cjs',
         'test.mjs',
         'js.snap',
+        'cjs.snap',
+        'mjs.snap',
         'cy.js',
       ],
     },
@@ -2266,8 +2271,12 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'prisma',
-      fileNames: ['prisma.yml', 'prisma.config.ts'],
+      fileNames: ['prisma.yml'],
       fileExtensions: ['prisma'],
+      patterns: {
+        'prisma7.config': FileNamePattern.Ecmascript,
+        'prisma.config': FileNamePattern.Ecmascript,
+      },
     },
     { name: 'razor', fileExtensions: ['cshtml', 'vbhtml', 'razor'] },
     { name: 'abc', fileExtensions: ['abc'] },
@@ -2874,6 +2883,8 @@ export const fileIcons: FileIcons = {
         'tsconfig.server.json',
         'tsconfig.client.json',
         'tsconfig.declaration.json',
+        'tsconfig.dev.json',
+        'tsconfig.prod.json',
       ],
       fileExtensions: ['tsconfig.json'],
     },
@@ -3787,6 +3798,10 @@ export const fileIcons: FileIcons = {
     {
       name: 'mrpack',
       fileExtensions: ['mrpack'],
+    },
+    {
+      name: 'zizmor',
+      fileNames: ['zizmor.yml', 'zizmor.yaml'],
     },
   ]),
 };
